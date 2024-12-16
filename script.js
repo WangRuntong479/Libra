@@ -4,25 +4,27 @@ let currentSlide = 0;
 // 显示特定幻灯片
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.remove('active', 'previous');
+    slide.classList.remove('active');
     if (i === index) {
       slide.classList.add('active');
-    } else if (i === currentSlide) {
-      slide.classList.add('previous');
+      if (index === 0) {
+        setTimeout(() => {
+          slide.querySelector('.hidden-text').classList.add('black');
+        }, 500); // 延迟显示文字
+      }
     }
   });
 }
 
-// 下一页
-document.getElementById('next').addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-});
-
-// 上一页
-document.getElementById('prev').addEventListener('click', () => {
-  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-  showSlide(currentSlide);
+// 下一页功能
+document.body.addEventListener('click', () => {
+  const currentContent = slides[currentSlide].querySelector('.hidden-text');
+  if (currentContent && !currentContent.classList.contains('black')) {
+    currentContent.classList.add('black'); // 显示当前页面文字
+  } else {
+    currentSlide = (currentSlide + 1) % slides.length; // 进入下一页
+    showSlide(currentSlide);
+  }
 });
 
 // 初始化
