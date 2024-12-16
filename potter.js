@@ -1,7 +1,7 @@
 const slides = document.querySelectorAll('.slide');
 let currentSlide = 0;
 
-// 切换幻灯片
+// 显示特定幻灯片
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.remove('active', 'previous');
@@ -25,5 +25,5 @@ document.getElementById('prev').addEventListener('click', () => {
   showSlide(currentSlide);
 });
 
-// 初始化第一张幻灯片
+// 初始化
 showSlide(currentSlide);
