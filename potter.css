@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif; /* 仿魔法字体 */
+  overflow: hidden;
+  background-color: #1b1b1b;
+  color: white;
+}
+
+.ppt-container {
+  height: 100vh;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  transition: left 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+.slide.previous {
+  left: -100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.nav-buttons {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+button {
+  background: linear-gradient(45deg, #7F0909, #FFD700);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+}
+
+button:hover {
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
